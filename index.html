@@ -1,290 +1,1167 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texas Film - Your Resource for Filmmaking in Texas</title>
+    <title>Texas.Film - Premier Resource for Filmmaking in Texas</title>
+    <meta name="description" content="The ultimate guide to filming in Texas - locations, incentives, crew, gear, studios, and production resources across the Lone Star State">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #BF0A30; /* Texas red */
+            --primary-dark: #9D0928;
             --secondary: #002868; /* Texas blue */
+            --secondary-dark: #001A4A;
             --accent: #FFFFFF; /* White */
+            --accent-alt: #F5F5F5;
             --text: #333333;
+            --text-light: #666666;
             --light-gray: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text);
             line-height: 1.6;
+            background-color: var(--accent-alt);
+            overflow-x: hidden;
         }
         
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+        
+        /* Header Styles */
         header {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--accent);
-            padding: 1rem;
+            padding: 2rem 1rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23FFFFFF20" stroke-width="2"/></svg>');
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        /* Navigation */
         nav {
             background-color: var(--secondary);
-            padding: 0.5rem;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
         }
         
-        nav ul {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
         }
         
-        nav li {
-            margin: 0 1rem;
+        .nav-logo {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
-        nav a {
+        .nav-logo i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link {
             color: var(--accent);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
         }
         
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('texas-film-hero.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--accent);
+            padding: 8rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-card-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--accent);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+        }
+        
+        .cta-button i {
+            margin-left: 0.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--secondary);
             color: var(--accent);
             padding: 4rem 1rem;
             text-align: center;
         }
         
-        .container {
-            max-width: 1200px;
+        .testimonial-slider {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 1rem;
+            position: relative;
         }
         
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+        .testimonial {
+            padding: 2rem;
+            display: none;
+            animation: fadeIn 1s ease;
         }
         
-        .feature-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            background-color: var(--light-gray);
+        .testimonial.active {
+            display: block;
         }
         
-        .feature-card h3 {
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
             color: var(--primary);
-            margin-top: 0;
+            opacity: 0.5;
         }
         
-        footer {
-            background-color: var(--secondary);
+        .testimonial-author {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-role {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-nav {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .testimonial-dot.active {
+            opacity: 1;
+            background-color: var(--primary);
+        }
+        
+        /* Interactive Map Section */
+        .map-section {
+            position: relative;
+            height: 500px;
+            background-color: var(--light-gray);
+            overflow: hidden;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 40, 104, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--accent);
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 2rem;
+            padding: 2rem;
         }
         
-        .cta-button {
-            display: inline-block;
+        .map-content {
+            max-width: 600px;
+        }
+        
+        .map-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .map-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
             background-color: var(--primary);
             color: var(--accent);
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 1rem 0;
+            padding: 4rem 1rem;
+            text-align: center;
         }
         
-        .section-title {
-            color: var(--secondary);
-            border-bottom: 2px solid var(--primary);
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary);
+            color: var(--accent);
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-button:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-dark);
+            color: var(--accent);
+            padding: 4rem 1rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
             padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 50px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-button {
+                border-radius: 50px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Texas Film</h1>
-        <p>Your comprehensive resource for filmmaking in the Lone Star State</p>
+        <div class="header-content">
+            <h1 class="logo">Texas.Film</h1>
+            <p class="tagline">Your premier resource for filmmaking in the Lone Star State</p>
+        </div>
     </header>
     
+    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#locations">Locations</a></li>
-            <li><a href="#incentives">Incentives</a></li>
-            <li><a href="#gear">Gear & Rentals</a></li>
-            <li><a href="#crew">Crew Directory</a></li>
-            <li><a href="#studios">Studios</a></li>
-            <li><a href="#showcase">Showcase</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="#" class="nav-logo"><i class="fas fa-film"></i> Texas.Film</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#locations" class="nav-link active"><i class="fas fa-map-marker-alt"></i> Locations</a></li>
+                <li class="nav-item"><a href="#incentives" class="nav-link"><i class="fas fa-money-bill-wave"></i> Incentives</a></li>
+                <li class="nav-item"><a href="#gear" class="nav-link"><i class="fas fa-camera"></i> Gear & Rentals</a></li>
+                <li class="nav-item"><a href="#crew" class="nav-link"><i class="fas fa-users"></i> Crew Directory</a></li>
+                <li class="nav-item"><a href="#studios" class="nav-link"><i class="fas fa-video"></i> Studios</a></li>
+                <li class="nav-item"><a href="#showcase" class="nav-link"><i class="fas fa-star"></i> Showcase</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
     </nav>
     
+    <!-- Hero Section -->
     <section class="hero">
-        <h2>Everything You Need to Film in Texas</h2>
-        <p>From the Gulf Coast to the Panhandle, we've got your production covered</p>
-        <a href="#locations" class="cta-button">Explore Locations</a>
+        <div class="hero-content">
+            <h2>Everything You Need to Film in Texas</h2>
+            <p>From the Gulf Coast to the Panhandle, we've got your production covered with the most comprehensive resources in the state</p>
+            <a href="#locations" class="cta-button">Explore Resources <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="hero-scroll" id="heroScroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Locations Section -->
+        <section id="locations">
+            <h2 class="section-title">Where Texas Tells Stories</h2>
+            <p class="section-subtitle">Discover the perfect filming locations across our diverse state with our interactive location database</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Urban Locations">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Urban Locations</h3>
+                        <p>Dallas skyline, Austin music scene, San Antonio missions, Houston landmarks, and more metropolitan backdrops for your production.</p>
+                        <a href="#" class="cta-button">Explore Urban <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Rural Landscapes">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Rural Landscapes</h3>
+                        <p>Hill Country vistas, West Texas deserts, Gulf Coast beaches, Piney Woods - the perfect natural settings for your film.</p>
+                        <a href="#" class="cta-button">Explore Rural <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1580077873521-dc86339ef022?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Unique Spots">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Unique Spots</h3>
+                        <p>Ghost towns, oil fields, border towns, desert highways, and hidden gems that will make your production stand out.</p>
+                        <a href="#" class="cta-button">Explore Unique <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Incentives Section -->
+        <section id="incentives">
+            <h2 class="section-title">Texas Film Incentives</h2>
+            <p class="section-subtitle">Maximize your budget with Texas' competitive incentive programs and rebates</p>
+            
+            <div class="feature-card">
+                <div class="feature-card-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2111&q=80" alt="Texas Film Incentives">
+                </div>
+                <div class="feature-card-content">
+                    <h3>State & Local Rebates</h3>
+                    <p>Texas offers some of the most competitive incentive programs in the country. Our team can help you navigate the application process and maximize your savings.</p>
+                    <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Statewide programs with up to 22.5% cash back</li>
+                        <li style="margin-bottom: 0.5rem;">City-specific incentives in Austin, Dallas, Houston, and more</li>
+                        <li style="margin-bottom: 0.5rem;">Case studies of successful applications</li>
+                        <li>Special incentives for student films and first-time filmmakers</li>
+                    </ul>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#" class="cta-button">Incentive Calculator <i class="fas fa-calculator"></i></a>
+                        <a href="#" class="cta-button" style="background: var(--secondary);">Download Guide <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gear Section -->
+        <section id="gear">
+            <h2 class="section-title">Gear & Rentals Directory</h2>
+            <p class="section-subtitle">Find the equipment you need from trusted providers across Texas</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Camera & Lighting">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Camera & Lighting</h3>
+                        <p>From ARRI to RED to Blackmagic, find the perfect camera package for your production with our verified rental partners.</p>
+                        <a href="#" class="cta-button">Browse Equipment <i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Audio Equipment">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Audio Equipment</h3>
+                        <p>Specialists in field recording and production sound with top-tier equipment from brands like Sound Devices and Sennheiser.</p>
+                        <a href="#" class="cta-button">Browse Audio <i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Specialty Gear">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Specialty Gear</h3>
+                        <p>Grip trucks, drones, cranes, stabilizers, and special FX rigs for productions of all sizes and budgets.</p>
+                        <a href="#" class="cta-button">Browse Specialty <i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Crew Section -->
+        <section id="crew">
+            <h2 class="section-title">Texas Crew Connect</h2>
+            <p class="section-subtitle">Hire from Texas' deep pool of talented film professionals</p>
+            
+            <div class="feature-card">
+                <div class="feature-card-img">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Professional Crew">
+                </div>
+                <div class="feature-card-content">
+                    <h3>Professional Directory</h3>
+                    <p>Our comprehensive database connects you with the best local talent in every department. Search by specialty, location, or availability.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <span style="background-color: var(--light-gray); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center;">
+                            <i class="fas fa-filter" style="margin-right: 0.3rem; color: var(--primary);"></i> Union/Non-union
+                        </span>
+                        <span style="background-color: var(--light-gray); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center;">
+                            <i class="fas fa-language" style="margin-right: 0.3rem; color: var(--primary);"></i> Bilingual
+                        </span>
+                        <span style="background-color: var(--light-gray); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center;">
+                            <i class="fas fa-medal" style="margin-right: 0.3rem; color: var(--primary);"></i> Veterans
+                        </span>
+                        <span style="background-color: var(--light-gray); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center;">
+                            <i class="fas fa-star" style="margin-right: 0.3rem; color: var(--primary);"></i> Specialties
+                        </span>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="#" class="cta-button">Browse Crew <i class="fas fa-users"></i></a>
+                        <a href="#" class="cta-button" style="background: var(--secondary);">Post a Job <i class="fas fa-bullhorn"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Interactive Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-overlay">
+                <div class="map-content">
+                    <h2>Texas Film Locations Map</h2>
+                    <p>Explore our interactive map featuring thousands of filming locations across Texas with photos, permits information, and local contacts.</p>
+                    <a href="#" class="cta-button">Launch Interactive Map <i class="fas fa-map-marked-alt"></i></a>
+                </div>
+            </div>
+        </div>
     </section>
     
     <div class="container">
-        <section id="locations">
-            <h2 class="section-title">Where Texas Tells Stories</h2>
-            <p>Discover the perfect filming locations across our diverse state</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Urban Locations</h3>
-                    <p>Dallas skyline, Austin music scene, San Antonio missions, Houston landmarks</p>
-                    <a href="#" class="cta-button">View Urban Locations</a>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>Rural Landscapes</h3>
-                    <p>Hill Country vistas, West Texas deserts, Gulf Coast beaches, Piney Woods</p>
-                    <a href="#" class="cta-button">View Rural Locations</a>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>Unique Spots</h3>
-                    <p>Ghost towns, oil fields, border towns, desert highways, hidden gems</p>
-                    <a href="#" class="cta-button">View Unique Locations</a>
-                </div>
-            </div>
-            
-            <p>Coming soon: Interactive location map with drone footage and local stories</p>
-        </section>
-        
-        <section id="incentives">
-            <h2 class="section-title">Texas Film Incentives</h2>
-            <p>Make money back by filming in Texas</p>
-            
-            <div class="feature-card">
-                <h3>State & Local Rebates</h3>
-                <p>Breakdown of tax incentives, grants, and funding opportunities</p>
-                <ul>
-                    <li>Statewide programs</li>
-                    <li>City-specific incentives</li>
-                    <li>Case studies of successful applications</li>
-                </ul>
-                <p>Coming soon: Incentive calculator tool</p>
-            </div>
-        </section>
-        
-        <section id="gear">
-            <h2 class="section-title">Gear & Rentals Directory</h2>
-            <p>Find the equipment you need by city</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Camera & Lighting</h3>
-                    <p>Rental houses across Texas with availability calendars</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>Audio Equipment</h3>
-                    <p>Specialists in field recording and production sound</p>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>Specialty Gear</h3>
-                    <p>Grip trucks, drones, cranes, and special FX rigs</p>
-                </div>
-            </div>
-            
-            <p>Feature coming soon: Weekend specials and student discounts</p>
-        </section>
-        
-        <section id="crew">
-            <h2 class="section-title">Texas Crew Connect</h2>
-            <p>Hire local talent for your production</p>
-            
-            <div class="feature-card">
-                <h3>Professional Directory</h3>
-                <p>Find cinematographers, editors, gaffers, set designers and more</p>
-                <p>Filter by: union/non-union, bilingual, veteran status, and specialties</p>
-                <a href="#" class="cta-button">Browse Crew</a>
-            </div>
-            
-            <p>Coming soon: "Crew of the Month" feature and job board</p>
-        </section>
-        
+        <!-- Studios Section -->
         <section id="studios">
             <h2 class="section-title">Studio & Post-Production Guide</h2>
+            <p class="section-subtitle">Find the perfect production facility for your project</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h3>Soundstages</h3>
-                    <p>Listings by city with square footage and amenities</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Soundstages">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Soundstages</h3>
+                        <p>Listings by city with square footage, ceiling heights, amenities, and availability calendars for studios across Texas.</p>
+                        <a href="#" class="cta-button">View Studios <i class="fas fa-video"></i></a>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
-                    <h3>Post-Production</h3>
-                    <p>Editing bays, color grading houses, ADR/VO studios</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Post-Production">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Post-Production</h3>
+                        <p>Editing bays, color grading houses, ADR/VO studios, and finishing facilities with the latest technology.</p>
+                        <a href="#" class="cta-button">View Post Houses <i class="fas fa-edit"></i></a>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
-                    <h3>Virtual Production</h3>
-                    <p>XR stages and green screen facilities across Texas</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Virtual Production">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Virtual Production</h3>
+                        <p>State-of-the-art XR stages, LED walls, and green screen facilities for cutting-edge virtual production.</p>
+                        <a href="#" class="cta-button">View VP Stages <i class="fas fa-tv"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <p>Feature coming soon: 360° virtual tours of studio spaces</p>
         </section>
         
+        <!-- Showcase Section -->
         <section id="showcase">
-    <h2 class="section-title">"Shot in Texas" Showcase</h2>
-    
-    <div class="feature-card">
-        <h3>Iconic Texas Films</h3>
-        <p>Explore some of the most famous movies filmed or set in Texas:</p>
-        <ul style="list-style:none; padding-left:0; max-width:500px; margin:0 0 1rem 0;">
-            <li><a href="https://en.wikipedia.org/wiki/Dallas_(1972_film)" target="_blank" rel="noopener" style="color: var(--primary); text-decoration:none;">Dallas (1972)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Giant_(1956_film)" target="_blank" rel="noopener" style="color: var(--primary); text-decoration:none;">Giant (1956)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Friday_Night_Lights_(film)" target="_blank" rel="noopener" style="color: var(--primary); text-decoration:none;">Friday Night Lights (2004)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/No_Country_for_Old_Men" target="_blank" rel="noopener" style="color: var(--primary); text-decoration:none;">No Country for Old Men (2007)</a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Texas_Chainsaw_Massacre" target="_blank" rel="noopener" style="color: var(--primary); text-decoration:none;">The Texas Chainsaw Massacre (1974)</a></li>
-        </ul>
-<a href="https://en.wikipedia.org/wiki/List_of_films_set_in_Texas" target="_blank" rel="noopener" class="cta-button">Explore More Texas Films</a>
-    </div>
-    
-    <p>Coming soon: "Shot in Texas" film marker plaques for locations</p>
-</section>
+            <h2 class="section-title">"Shot in Texas" Showcase</h2>
+            <p class="section-subtitle">Celebrating the films and shows that have made Texas their home</p>
+            
+            <div class="feature-card">
+                <div class="feature-card-img">
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Iconic Texas Films">
+                </div>
+                <div class="feature-card-content">
+                    <h3>Iconic Texas Films</h3>
+                    <p>From classic Westerns to modern blockbusters, explore the rich history of filmmaking in Texas through our curated collection.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <a href="#" class="cta-button">View Showcase <i class="fas fa-film"></i></a>
+                        <a href="#" class="cta-button" style="background: var(--secondary);">Submit Your Film <i class="fas fa-upload"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
         
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2 class="section-title" style="color: var(--accent);">What Texas Filmmakers Say</h2>
+            <p class="section-subtitle" style="color: var(--light-gray);">Hear from the professionals who've used Texas.Film to power their productions</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">Texas.Film connected us with the perfect crew and locations for our feature film. Their incentive guidance helped us secure an additional 18% in rebates.</p>
+                    <p class="testimonial-author">Sarah Johnson</p>
+                    <p class="testimonial-role">Director, "Lone Star Nights"</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">As a production manager from LA, Texas.Film was invaluable for navigating the local resources. We saved three weeks of prep time using their database.</p>
+                    <p class="testimonial-author">Michael Chen</p>
+                    <p class="testimonial-role">Production Manager, Netflix Series</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">The gear rental directory helped us find specialty equipment in El Paso that we didn't think existed outside of Hollywood. Game changer for our indie production.</p>
+                    <p class="testimonial-author">Elena Rodriguez</p>
+                    <p class="testimonial-role">DP, "Borderland Stories"</p>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Additional Resources -->
         <section>
             <h2 class="section-title">Additional Resources</h2>
+            <p class="section-subtitle">Everything else you need to succeed with your Texas production</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h3>Film School Roadmap</h3>
-                    <p>Guide to Texas film programs, internships, and student showcases</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Film School Roadmap">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Film School Roadmap</h3>
+                        <p>Guide to Texas film programs, internships, equipment access, and student showcases to launch your career.</p>
+                        <a href="#" class="cta-button">Explore Schools <i class="fas fa-graduation-cap"></i></a>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
-                    <h3>Production Case Studies</h3>
-                    <p>Real-world examples of filming in Texas with budgets and logistics</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Production Case Studies">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Production Case Studies</h3>
+                        <p>Real-world examples of filming in Texas with budgets, timelines, and lessons learned from actual productions.</p>
+                        <a href="#" class="cta-button">View Case Studies <i class="fas fa-chart-line"></i></a>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
-                    <h3>Filmmaker Competitions</h3>
-                    <p>Texas 48-Hour Film Challenge and other opportunities</p>
+                    <div class="feature-card-img">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Filmmaker Competitions">
+                    </div>
+                    <div class="feature-card-content">
+                        <h3>Filmmaker Competitions</h3>
+                        <p>Texas 48-Hour Film Challenge, Austin Film Festival competitions, and other opportunities to showcase your work.</p>
+                        <a href="#" class="cta-button">View Competitions <i class="fas fa-trophy"></i></a>
+                    </div>
                 </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h2>Stay Updated on Texas Filmmaking</h2>
+                <p>Subscribe to our newsletter for the latest on incentives, crew calls, gear deals, and Texas film news.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
             </div>
         </section>
     </div>
     
-    <footer>
-        <p>Texas.Film - Connecting Filmmakers with Texas Resources</p>
-        <p>Contact: info@texas.film</p>
-        <p>&copy; 2023 Texas.Film. All rights reserved.</p>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Texas.Film</h3>
+                <p style="color: var(--light-gray); margin-bottom: 1.5rem;">Your comprehensive resource for filmmaking in the Lone Star State.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#locations"><i class="fas fa-chevron-right"></i> Locations</a></li>
+                    <li><a href="#incentives"><i class="fas fa-chevron-right"></i> Incentives</a></li>
+                    <li><a href="#gear"><i class="fas fa-chevron-right"></i> Gear & Rentals</a></li>
+                    <li><a href="#crew"><i class="fas fa-chevron-right"></i> Crew Directory</a></li>
+                    <li><a href="#studios"><i class="fas fa-chevron-right"></i> Studios</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Production Guides</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Permit Information</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Film Commissions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Unions & Guilds</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Film Festivals</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@texas.film"><i class="fas fa-envelope"></i> info@texas.film</a></li>
+                    <li><a href="tel:+12145551234"><i class="fas fa-phone"></i> (214) 555-1234</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Austin, TX</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9AM-5PM</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Texas.Film. All rights reserved. | <a href="#" style="color: var(--light-gray);">Privacy Policy</a> | <a href="#" style="color: var(--light-gray);">Terms of Service</a></p>
+        </div>
     </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Hero Scroll Button
+        const heroScroll = document.getElementById('heroScroll');
+        heroScroll.addEventListener('click', () => {
+            window.scrollTo({
+                top: document.querySelector('.container').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                showTestimonial(parseInt(this.getAttribute('data-index')));
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            let nextIndex = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(nextIndex);
+        }, 5000);
+        
+        // Scroll Animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .section-title, .section-subtitle');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize elements for animation
+        document.querySelectorAll('.feature-card, .section-title, .section-subtitle').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
 </body>
 </html>
