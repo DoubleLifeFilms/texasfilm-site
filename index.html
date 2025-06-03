@@ -1,10 +1,283 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Texas.film</title>
-  </head>
-  <body>
-    <h1>Welcome to Texas.film</h1>
-    <p>This is just the start. Real content coming soon.</p>
-  </body>
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas.Film - Your Resource for Filmmaking in Texas</title>
+    <style>
+        :root {
+            --primary: #BF0A30; /* Texas red */
+            --secondary: #002868; /* Texas blue */
+            --accent: #FFFFFF; /* White */
+            --text: #333333;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('texas-film-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--accent);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: var(--accent);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Texas.Film</h1>
+        <p>Your comprehensive resource for filmmaking in the Lone Star State</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#locations">Locations</a></li>
+            <li><a href="#incentives">Incentives</a></li>
+            <li><a href="#gear">Gear & Rentals</a></li>
+            <li><a href="#crew">Crew Directory</a></li>
+            <li><a href="#studios">Studios</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h2>Everything You Need to Film in Texas</h2>
+        <p>From the Gulf Coast to the Panhandle, we've got your production covered</p>
+        <a href="#locations" class="cta-button">Explore Locations</a>
+    </section>
+    
+    <div class="container">
+        <section id="locations">
+            <h2 class="section-title">Where Texas Tells Stories</h2>
+            <p>Discover the perfect filming locations across our diverse state</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Urban Locations</h3>
+                    <p>Dallas skyline, Austin music scene, San Antonio missions, Houston landmarks</p>
+                    <a href="#" class="cta-button">View Urban Locations</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Rural Landscapes</h3>
+                    <p>Hill Country vistas, West Texas deserts, Gulf Coast beaches, Piney Woods</p>
+                    <a href="#" class="cta-button">View Rural Locations</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Unique Spots</h3>
+                    <p>Ghost towns, oil fields, border towns, desert highways, hidden gems</p>
+                    <a href="#" class="cta-button">View Unique Locations</a>
+                </div>
+            </div>
+            
+            <p>Coming soon: Interactive location map with drone footage and local stories</p>
+        </section>
+        
+        <section id="incentives">
+            <h2 class="section-title">Texas Film Incentives</h2>
+            <p>Make money back by filming in Texas</p>
+            
+            <div class="feature-card">
+                <h3>State & Local Rebates</h3>
+                <p>Breakdown of tax incentives, grants, and funding opportunities</p>
+                <ul>
+                    <li>Statewide programs</li>
+                    <li>City-specific incentives</li>
+                    <li>Case studies of successful applications</li>
+                </ul>
+                <p>Coming soon: Incentive calculator tool</p>
+            </div>
+        </section>
+        
+        <section id="gear">
+            <h2 class="section-title">Gear & Rentals Directory</h2>
+            <p>Find the equipment you need by city</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Camera & Lighting</h3>
+                    <p>Rental houses across Texas with availability calendars</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Audio Equipment</h3>
+                    <p>Specialists in field recording and production sound</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Specialty Gear</h3>
+                    <p>Grip trucks, drones, cranes, and special FX rigs</p>
+                </div>
+            </div>
+            
+            <p>Feature coming soon: Weekend specials and student discounts</p>
+        </section>
+        
+        <section id="crew">
+            <h2 class="section-title">Texas Crew Connect</h2>
+            <p>Hire local talent for your production</p>
+            
+            <div class="feature-card">
+                <h3>Professional Directory</h3>
+                <p>Find cinematographers, editors, gaffers, set designers and more</p>
+                <p>Filter by: union/non-union, bilingual, veteran status, and specialties</p>
+                <a href="#" class="cta-button">Browse Crew</a>
+            </div>
+            
+            <p>Coming soon: "Crew of the Month" feature and job board</p>
+        </section>
+        
+        <section id="studios">
+            <h2 class="section-title">Studio & Post-Production Guide</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Soundstages</h3>
+                    <p>Listings by city with square footage and amenities</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Post-Production</h3>
+                    <p>Editing bays, color grading houses, ADR/VO studios</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Virtual Production</h3>
+                    <p>XR stages and green screen facilities across Texas</p>
+                </div>
+            </div>
+            
+            <p>Feature coming soon: 360° virtual tours of studio spaces</p>
+        </section>
+        
+        <section id="showcase">
+            <h2 class="section-title">"Shot in Texas" Showcase</h2>
+            
+            <div class="feature-card">
+                <h3>Iconic Texas Films</h3>
+                <p>Interviews with directors, behind-the-scenes breakdowns, and location maps</p>
+                <a href="#" class="cta-button">View Showcase</a>
+            </div>
+            
+            <p>Coming soon: "Shot in Texas" film marker plaques for locations</p>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Additional Resources</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Film School Roadmap</h3>
+                    <p>Guide to Texas film programs, internships, and student showcases</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Production Case Studies</h3>
+                    <p>Real-world examples of filming in Texas with budgets and logistics</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Filmmaker Competitions</h3>
+                    <p>Texas 48-Hour Film Challenge and other opportunities</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Texas.Film - Connecting Filmmakers with Texas Resources</p>
+        <p>Contact: info@texas.film</p>
+        <p>&copy; 2023 Texas.Film. All rights reserved.</p>
+    </footer>
+</body>
 </html>
