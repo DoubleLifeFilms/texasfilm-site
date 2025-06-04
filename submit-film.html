@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit Your Film - Texas Film Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Submit Your Film</h1>
+  <form name="film-submission" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="film-submission" />
+
+    <label for="title">Film Title</label>
+    <input id="title" name="title" type="text" required />
+
+    <label for="poster">Poster Image URL</label>
+    <input id="poster" name="poster" type="url" placeholder="https://example.com/poster.jpg" required />
+
+    <label for="director">Director</label>
+    <input id="director" name="director" type="text" required />
+
+    <label for="writer">Writer</label>
+    <input id="writer" name="writer" type="text" required />
+
+    <label for="cast">Principal Cast Members (comma separated)</label>
+    <input id="cast" name="cast" type="text" required />
+
+    <label for="location">Filming Location</label>
+    <input id="location" name="location" type="text" required />
+
+    <label for="release">Release Date</label>
+    <input id="release" name="release" type="date" required />
+
+    <label for="synopsis">Synopsis</label>
+    <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
+
+    <label for="funfacts">Fun Facts</label>
+    <textarea id="funfacts" name="funfacts" rows="3"></textarea>
+
+    <button type="submit">Submit Film</button>
+  </form>
+</body>
+</html>
