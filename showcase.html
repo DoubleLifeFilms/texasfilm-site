@@ -6,45 +6,77 @@
   <title>“Shot in Texas” Film Showcase</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 1rem;
-      background: #f4f4f4;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #222;
     }
+
     h1 {
       color: #BF0A30;
       text-align: center;
       margin-bottom: 2rem;
     }
+
     .film-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
+
     .film-card {
       background: white;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      position: relative;
     }
-    .film-card img {
+
+    .image-container {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .image-container img {
       width: 100%;
-      height: 375px;
+      height: 400px;
       object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
-    .film-card .info {
-      padding: 1rem;
+
+    .image-container img.active {
+      opacity: 1;
     }
-    .film-card h2 {
+
+    .info {
+      padding: 1.2rem;
+    }
+
+    .info h2 {
       margin-top: 0;
       color: #BF0A30;
     }
-    .film-card p {
-      font-size: 0.9rem;
-      color: #333;
+
+    .info p {
+      margin: 0.3rem 0;
+      font-size: 0.92rem;
+      line-height: 1.4;
     }
+
+    .tagline {
+      font-style: italic;
+      color: #444;
+      margin-bottom: 0.5rem;
+    }
+
     .back-link {
       display: block;
       text-align: center;
@@ -53,6 +85,7 @@
       color: #002868;
       text-decoration: none;
     }
+
     .back-link:hover {
       text-decoration: underline;
     }
@@ -63,73 +96,77 @@
   <h1>“Shot in Texas” Film Showcase</h1>
 
   <div class="film-grid">
+
+    <!-- Example Film -->
     <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Giant_1956_poster.jpg" alt="Giant poster">
+      <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Giant_1956_poster.jpg" class="active" alt="Giant poster">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Giant_Movie_Scene.jpg/640px-Giant_Movie_Scene.jpg" alt="Giant still">
+      </div>
       <div class="info">
         <h2>Giant (1956)</h2>
+        <p class="tagline">“The legendary Texas oil epic.”</p>
         <p><strong>Director:</strong> George Stevens</p>
         <p><strong>Stars:</strong> Elizabeth Taylor, James Dean, Rock Hudson</p>
-        <p><strong>Filming Location:</strong> Marfa, TX</p>
-        <p><strong>Fun Fact:</strong> The cast and crew lived in Marfa for weeks; today it's a pilgrimage site for cinephiles.</p>
+        <p><strong>Location:</strong> Marfa, TX</p>
+        <p><strong>Fun Fact:</strong> James Dean died shortly after finishing this role.</p>
+        <p><strong>Synopsis:</strong> A sprawling family drama about wealth, race, and land in West Texas.</p>
       </div>
     </div>
 
+    <!-- Add more like this -->
     <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Friday_night_lights_movie_poster.jpg" alt="Friday Night Lights poster">
+      <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Friday_night_lights_movie_poster.jpg" class="active" alt="Friday Night Lights poster">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f7/FridayNightLightsMovieStill.jpg" alt="Friday Night Lights still">
+      </div>
       <div class="info">
         <h2>Friday Night Lights (2004)</h2>
+        <p class="tagline">“Hope comes alive under the lights.”</p>
         <p><strong>Director:</strong> Peter Berg</p>
         <p><strong>Stars:</strong> Billy Bob Thornton, Derek Luke</p>
-        <p><strong>Filming Location:</strong> Odessa, TX</p>
-        <p><strong>Fun Fact:</strong> Inspired the hit TV series — both filmed entirely in Texas.</p>
+        <p><strong>Location:</strong> Odessa & Austin, TX</p>
+        <p><strong>Fun Fact:</strong> Based on the nonfiction book by H.G. Bissinger.</p>
+        <p><strong>Synopsis:</strong> A high school football team carries the hopes of a small Texas town.</p>
       </div>
     </div>
 
     <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/No_Country_for_Old_Men_poster.jpg" alt="No Country for Old Men poster">
+      <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/No_Country_for_Old_Men_poster.jpg" class="active" alt="No Country for Old Men poster">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/NoCountryShot.jpg" alt="No Country for Old Men still">
+      </div>
       <div class="info">
         <h2>No Country for Old Men (2007)</h2>
+        <p class="tagline">“There are no clean getaways.”</p>
         <p><strong>Directors:</strong> Joel & Ethan Coen</p>
         <p><strong>Stars:</strong> Javier Bardem, Josh Brolin, Tommy Lee Jones</p>
-        <p><strong>Filming Location:</strong> West Texas (Sanderson, Eagle Pass)</p>
-        <p><strong>Fun Fact:</strong> The Coens used real towns and motels — the stark landscape became a character itself.</p>
+        <p><strong>Location:</strong> Marfa, Sanderson, Eagle Pass, TX</p>
+        <p><strong>Fun Fact:</strong> Won 4 Oscars including Best Picture.</p>
+        <p><strong>Synopsis:</strong> A hunter stumbles upon drug money — and becomes the hunted.</p>
       </div>
     </div>
 
-    <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/e/e4/Dallas_Buyers_Club_poster.jpg" alt="Dallas Buyers Club poster">
-      <div class="info">
-        <h2>Dallas Buyers Club (2013)</h2>
-        <p><strong>Director:</strong> Jean-Marc Vallée</p>
-        <p><strong>Stars:</strong> Matthew McConaughey, Jared Leto</p>
-        <p><strong>Filming Location:</strong> New Orleans (but set in Dallas)</p>
-        <p><strong>Fun Fact:</strong> Though not shot in Dallas, the film is based on the real-life Dallasite Ron Woodroof.</p>
-      </div>
-    </div>
-
-    <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Robocop_%282014_film%29.jpg" alt="RoboCop (2014)">
-      <div class="info">
-        <h2>RoboCop (2014)</h2>
-        <p><strong>Director:</strong> José Padilha</p>
-        <p><strong>Stars:</strong> Joel Kinnaman, Gary Oldman</p>
-        <p><strong>Filming Location:</strong> Dallas, TX</p>
-        <p><strong>Fun Fact:</strong> Parts of downtown Dallas were used as a stand-in for futuristic Detroit.</p>
-      </div>
-    </div>
-
-    <div class="film-card">
-      <img src="https://upload.wikimedia.org/wikipedia/en/4/4f/JFKmovie.jpg" alt="JFK poster">
-      <div class="info">
-        <h2>JFK (1991)</h2>
-        <p><strong>Director:</strong> Oliver Stone</p>
-        <p><strong>Stars:</strong> Kevin Costner, Tommy Lee Jones</p>
-        <p><strong>Filming Location:</strong> Dallas & Dealey Plaza</p>
-        <p><strong>Fun Fact:</strong> Dealey Plaza was locked down for days to recreate the JFK assassination.</p>
-      </div>
-    </div>
+    <!-- Continue with other films as needed -->
   </div>
 
   <a href="/" class="back-link">&larr; Back to Home</a>
+
+  <script>
+    // Crossfade images every 4 seconds
+    const cards = document.querySelectorAll('.image-container');
+
+    cards.forEach(container => {
+      const images = container.querySelectorAll('img');
+      let index = 0;
+
+      setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 4000);
+    });
+  </script>
+
 </body>
 </html>
