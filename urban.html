@@ -2,131 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Urban Locations - Shot in Texas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Urban Locations - Shot in Texas</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
+      margin: 0; padding: 0;
+      background: #fafafa;
       color: #333;
     }
-
-    header, footer {
-      background: #222;
-      color: white;
-      padding: 1rem;
+    header {
+      background-color: #111;
+      color: #fff;
       text-align: center;
+      padding: 2rem 1rem;
+      font-size: 2rem;
+      font-weight: 700;
     }
-
-    .container {
-      max-width: 1000px;
+    main {
+      max-width: 900px;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
     }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
     .location {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
-      align-items: center;
       background: white;
-      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
-
     .location img {
-      width: 300px;
-      border-radius: 8px;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px 0 0 8px;
+      flex-shrink: 0;
     }
-
-    .location-description {
-      flex: 1;
+    .location-content {
+      padding: 1rem 1.5rem;
+      flex: 1 1 300px;
     }
-
-    .location-description h2 {
-      margin: 0 0 0.5rem 0;
+    .location-content h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #0077cc;
     }
-
-    a.back {
-      display: block;
-      text-align: center;
-      margin: 2rem auto;
-      text-decoration: none;
+    .back-link {
+      display: inline-block;
+      margin: 3rem auto;
+      padding: 0.7rem 1.5rem;
       background: #0077cc;
       color: white;
-      padding: 0.5rem 1rem;
+      font-weight: 700;
+      text-decoration: none;
       border-radius: 5px;
-      width: 200px;
+      text-align: center;
+      transition: background-color 0.3s ease;
     }
-
-    a.back:hover {
+    .back-link:hover {
       background: #005fa3;
+    }
+    @media (max-width: 600px) {
+      .location {
+        flex-direction: column;
+      }
+      .location img {
+        border-radius: 8px 8px 0 0;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <header>Explore Urban Locations in Texas</header>
+  <main>
+    <section class="location">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dallas_skyline_from_I-35.jpg" alt="Dallas Skyline" />
+      <div class="location-content">
+        <h2>Dallas Skyline</h2>
+        <p>Modern urban architecture with iconic skyscrapers such as Reunion Tower, Bank of America Plaza, and Margaret Hunt Hill Bridge. Perfect for high-end commercial shoots and dramatic cityscapes.</p>
+      </div>
+    </section>
 
-<header>
-  <h1>Urban Filming Locations in Texas</h1>
-</header>
+    <section class="location">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Austin_music_scene.jpg" alt="Austin Music Scene" />
+      <div class="location-content">
+        <h2>Austin Music Scene</h2>
+        <p>Vibrant nightlife and live music venues on Sixth Street, combined with colorful murals and street art. Ideal for indie films, documentaries, and music videos.</p>
+      </div>
+    </section>
 
-<div class="container">
+    <section class="location">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/San_Antonio_Missions_National_Historical_Park.jpg" alt="San Antonio Missions" />
+      <div class="location-content">
+        <h2>San Antonio Missions</h2>
+        <p>Historic Spanish missions from the 1700s, with rustic stone architecture and lush greenery. Excellent for period films and atmospheric scenes.</p>
+      </div>
+    </section>
 
-  <div class="location">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Dallas_skyline_from_I-35.jpg" alt="Dallas Skyline">
-    <div class="location-description">
-      <h2>Dallas Skyline</h2>
-      <p>Capture modern elegance with Dallas’ sleek skyline, featuring iconic buildings like the Reunion Tower, Bank of America Plaza, and the Margaret Hunt Hill Bridge. Great for dramas, action sequences, and high-end commercial vibes.</p>
-    </div>
-  </div>
+    <section class="location">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Downtown_Houston_Skyline.jpg" alt="Houston Landmarks" />
+      <div class="location-content">
+        <h2>Houston Landmarks</h2>
+        <p>Dynamic skyscrapers, modern museums, and multi-cultural neighborhoods. Great for contemporary stories and sci-fi backdrops.</p>
+      </div>
+    </section>
 
-  <div class="location">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Austin_music_scene.jpg" alt="Austin Music Scene">
-    <div class="location-description">
-      <h2>Austin Music Scene</h2>
-      <p>From iconic venues like Stubb's BBQ to Sixth Street’s vibrant nightlife, Austin is perfect for indie films and music-centric stories. Colorful murals and street performers add an authentic, artistic backdrop.</p>
-    </div>
-  </div>
+    <section class="location">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/El_Paso_Skyline.jpg" alt="El Paso Skyline" />
+      <div class="location-content">
+        <h2>More Metropolitan Backdrops</h2>
+        <p>From El Paso’s desert skyline to Fort Worth’s western charm, Texas offers diverse urban environments for all types of productions.</p>
+      </div>
+    </section>
 
-  <div class="location">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/San_Antonio_Missions_National_Historical_Park.jpg" alt="San Antonio Missions">
-    <div class="location-description">
-      <h2>San Antonio Missions</h2>
-      <p>Historic and cinematic, these 18th-century Spanish missions offer rich textures and rustic architecture ideal for period pieces and atmospheric storytelling.</p>
-    </div>
-  </div>
-
-  <div class="location">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Downtown_Houston_Skyline.jpg" alt="Houston Landmarks">
-    <div class="location-description">
-      <h2>Houston Landmarks</h2>
-      <p>Skyscrapers, tunnels, modern museums, and multicultural districts. Houston’s urban sprawl is versatile enough for sci-fi, action, and contemporary dramas alike.</p>
-    </div>
-  </div>
-
-  <div class="location">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/El_Paso_Skyline.jpg" alt="More Metros">
-    <div class="location-description">
-      <h2>More Metropolitan Backdrops</h2>
-      <p>From El Paso’s desert skyline to Fort Worth’s Western-modern fusion, Texas offers diverse urban looks within driving distance. Great for films needing variety without crossing state lines.</p>
-    </div>
-  </div>
-
-  <a href="index.html" class="back">← Back to Main Page</a>
-
-</div>
-
-<footer>
-  <p>&copy; 2025 Double Life Films</p>
-</footer>
-
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </main>
 </body>
 </html>
